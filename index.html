@@ -31,17 +31,26 @@
 
   <title>monkeypox_survey_app</title>
   <link rel="manifest" href="manifest.json">
-
+  <link rel="stylesheet" href="style.css">
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '460226193';
+    var serviceWorkerVersion = '1478198139';
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+  <script src="video_player.js"></script>
 </head>
 <body>
+  <video id="animationPlayer" autoplay muted><source type="video/mp4" src="assets/assets/animations/cosex_intro.mp4"></video>
   <script>
     window.addEventListener('load', function(ev) {
+      if(screen.width < 600) {
+            if(!videoPlayer.src.includes("assets/assets/animations/cosex_intro_ver.mp4")) {
+                videoPlayer.src="assets/assets/animations/cosex_intro_ver.mp4";
+            }
+        }
+    });
+    document.getElementById('animationPlayer').addEventListener('ended', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
@@ -52,7 +61,7 @@
       }).then(function(appRunner) {
         return appRunner.runApp();
       });
-    });
+    }, false);
   </script>
 </body>
 </html>
