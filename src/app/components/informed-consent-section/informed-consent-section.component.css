@@ -1,0 +1,290 @@
+p {
+    text-align: justify;
+}
+
+.question-text{
+    text-align: justify;
+}
+
+.form-group {
+    text-align: justify;
+}
+
+.container-radio {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+.widget-radio {
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+}
+
+.invalid-input-label {
+    width: 100%;
+    margin-top: .25rem;
+    color: #dc3545;
+    text-align: justify;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-container {
+        margin-top: 4.5em;
+        margin-left: 2em;
+        margin-right: 2.6em;
+        height: 10em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 121vw;
+    }
+    .section-content {
+        margin-right: 0.25em;
+        margin-left: 0.45em;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    p, label{
+        font-size: 1.4em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    input[type='radio'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    .subtitle {
+        font-size: 1.4em;
+    }
+    .description {
+        font-size: 1em;
+    }
+    .main-container {
+        margin-top: 4.5vw;
+        margin-left: 20em;
+        margin-right: 6.4em;
+        height: 10em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 28vw;
+    }
+    .section-content {
+        margin-right: 1.25em;
+        margin-left: 1.45em;
+    }
+    .container-radio {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    .widget-radio {
+        align-items: flex-start;
+        padding-top: 0vw;
+        padding-bottom: 1vw;
+        display: flex;
+    }
+    .containter-buttons {
+        text-align: center;
+        padding-top: 1em;
+        margin-left: 12vw;
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    p, label, .invalid-input-label {
+        font-size: 1.4em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    input[type='radio'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    input[type='checkbox'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    .main-container {
+        margin-top: 16.5vw;
+        margin-left: 2em;
+        margin-right: 2em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 74vw;
+    }
+    .section-content {
+        margin-right: 1.25em;
+        margin-left: 1.45em;
+    }
+    .section-body {
+        margin-bottom: 1.9vw;
+    }
+    .containter-buttons {
+        text-align: center;
+        padding-top: 0em;
+        margin-left: 5.5vw;
+    }
+    .container-header {
+        padding-top: 0vw;
+    }
+    .container-header h2 {
+        font-size: 2.5em;
+    }
+    .widget-dropdown {
+        padding-top: 1em;
+        margin-bottom: 2vw;
+    }
+    .dropdown {
+        width: 30%;
+    }
+    .dropdown-option {
+        width: 2em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+    }
+    .container-checkbox {
+        margin-top: 1vw;
+        margin-bottom: -1vw;
+    }
+    .widget-checkbox {
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 1vw;
+        display: flex;
+    }
+    .widget-which-checkbox {
+        padding-top: 0em;
+        padding-bottom: 0em;
+        padding-left: 1.4em;
+        width: 65%;
+        display: inline-block;
+    }
+    .container-radio {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    /* .form-group {
+        text-align: center;
+    } */
+    .widget-radio {
+        text-align: justify;
+        padding-top: 1vw;
+        padding-bottom: 0vw;
+        /* display: inherit; */
+    }
+    .widget-which {
+        padding-top: 0.6em;
+        padding-bottom: 0.4em;
+        padding-left: 1.6em;
+        width: 65%;
+        display: inline-block;
+    }
+    .invalid-input-label p {
+        width: 100%;
+        margin-top: .24rem;
+        color: #dc3545;
+        text-align: justify;
+        font-size: 1em;
+    }
+}
+
+
+@media only screen and (min-width: 801px) {
+    p, label, .invalid-input-label {
+        font-size: 1.4em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    input[type='radio'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    input[type='checkbox'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    .main-container {
+        margin-top: 16.5vw;
+        margin-left: 2em;
+        margin-right: 2em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 74vw;
+    }
+    .section-content {
+        margin-right: 1.25em;
+        margin-left: 1.45em;
+    }
+    .section-body {
+        margin-bottom: 1.9vw;
+    }
+    .containter-buttons {
+        text-align: center;
+        padding-top: 0em;
+        margin-left: 5.5vw;
+    }
+    .container-header {
+        padding-top: 0vw;
+    }
+    .container-header h2 {
+        font-size: 2.5em;
+    }
+    .widget-dropdown {
+        padding-top: 1em;
+        margin-bottom: 2vw;
+    }
+    .dropdown {
+        width: 30%;
+    }
+    .dropdown-option {
+        width: 2em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+    }
+    .container-checkbox {
+        margin-top: 1vw;
+        margin-bottom: -1vw;
+    }
+    .widget-checkbox {
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 1vw;
+        display: flex;
+    }
+    .widget-which-checkbox {
+        padding-top: 0em;
+        padding-bottom: 0em;
+        padding-left: 1.4em;
+        width: 65%;
+        display: inline-block;
+    }
+    .container-radio {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    /* .form-group {
+        text-align: center;
+    } */
+    .widget-radio {
+        text-align: justify;
+        padding-top: 1vw;
+        padding-bottom: 0vw;
+        /* display: inherit; */
+    }
+    .widget-which {
+        padding-top: 0.6em;
+        padding-bottom: 0.4em;
+        padding-left: 1.6em;
+        width: 65%;
+        display: inline-block;
+    }
+    .invalid-input-label p {
+        width: 100%;
+        margin-top: .24rem;
+        color: #dc3545;
+        text-align: justify;
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,123 @@
+<app-background-video-player [animationPath]="animationPath"></app-background-video-player>
+<div class="main-container">
+    <div class="container-header">
+        <h2>Consentimiento informado</h2>
+    </div>
+    <div class="section-content">
+        <div>
+            <p class="subtitle">Título del estudio:
+                <label class="description">Conocimientos, Percepción del Riesgo y Actitudes en Torno a La Viruela Símica
+                    (MPOX) y la Implementación de Medidas Preventivas en Personas Pertenecientes a La Comunidad LGTBIQ+
+                    en Colombia.</label>
+            </p>
+        </div>
+        <div>
+            <p class="subtitle">Investigadores principales:
+                <label class="description">Zulma Milena Cucunubá Perez, Cándida Rosa Díaz Brochero y David Santiago
+                    Quevedo Vega.</label>
+            </p>
+        </div>
+        <div>
+            <p class="subtitle">Coinvestigadores:
+                <label class="description">Juliana María Cuervo Rojas, Maria Camila Gómez Ayala, Geraldine Sarai Gómez
+                    Millan, Miguel Ángel Barriga Talero, Jennifer Lorena Ortiz Melo, Jhon Fredy Ramirez Correa y
+                    Stephany Alejandra Salazar Martinez.</label>
+            </p>
+        </div>
+        <div>
+            <p class="subtitle">¿Cuál es el propósito del estudio?</p>
+            <p>Entender el impacto que tendrá la epidemia de viruela símica en las personas pertenecientes a los
+                sectores de LGTBI+ en Colombia y de esta manera implementar medidas para su control.</p>
+        </div>
+        <div>
+            <p class="subtitle">¿En qué consiste el estudio? ¿Cuánto tiempo durará mi participación en el estudio?
+            </p>
+            <p>Este es un proyecto de investigación para caracterizar el comportamiento sexual, percepción del riesgo y
+                actitudes en torno a la infección por virus de viruela del mono de las personas pertenecientes a los
+                sectores de LGTBIQ+ en Colombia.</p>
+            <p>Cada participante contestará una sola vez, de forma voluntaria, anónima, autónoma y completa el
+                cuestionario virtual. Cuanto más sinceras sean las respuestas brindadas, mayor será la calidad de la
+                información que ayude a cumplir con el propósito del estudio. La encuesta se contesta una sola vez y
+                como parte de este estudio no se realizará ningún otro tipo de contacto o seguimiento.</p>
+        </div>
+        <div>
+            <p class="subtitle">¿Qué beneficios tiene el estudio?</p>
+            <p>Al participar en este estudio y contestar la encuesta con sinceridad, usted contribuirá con información
+                clave que permitirá estimar el impacto de la infección en las personas pertenecientes a los sectores
+                LGTBIQ+ del país que sirva de base para la planeación de medidas de control de la viruela símica.</p>
+        </div>
+        <div>
+            <p class="subtitle">¿Hay algunos riesgos como consecuencia de responder la encuesta?</p>
+            <p>No hay riesgos físicos, sociales o económicos asociados con la participación en este estudio. Hay
+                algunas preguntas que podría encontrar incómodas o difíciles de responder, sin embargo, no está
+                obligado (a) de ninguna forma a responderlas todas. Así mismo, si después de iniciada la encuesta no se
+                siente cómodo (a) con las preguntas o con la información que se solicita, usted podrá dejar de
+                contestar.</p>
+        </div>
+        <div>
+            <p class="subtitle">¿Cómo se protegerá su privacidad?</p>
+            <p>Este proyecto se acoge a la ley 1581 de 2012 (Hábeas Data) que aplica para el tratamiento de datos
+                personales. Entendemos que la información solicitada puede ser delicada y privada, por ello desde la
+                planeación del estudio se han diseñado las siguientes estrategias para asegurar la confidencialidad de
+                la información:</p>
+            <p> 1) No le serán solicitados datos de identificación como: nombres, apellidos, número de cédula u
+                otros. </p>
+            <p> 2) La encuesta solo se puede contestar de forma virtual por medio de una herramienta electrónica
+                (celular, tableta, computador, portátil), de esta manera usted no tendrá que compartir información
+                personal de carácter privado con un entrevistador.</p>
+            <p> 3) No quedará ningún registro del dispositivo electrónico que se use para contestar la encuesta
+                (número de celular, registro o dirección IP, etc.).</p>
+            <p> 4) Toda la información recolectada será enviada directamente a una plataforma a la que solo tienen
+                acceso los (las) investigadores(as) del proyecto.</p>
+            <p> 5) Los resultados de la investigación serán publicados siempre de forma agrupada, de tal manera que
+                usted nunca será identificado.</p>
+            <p>Este estudio ha sido revisado y aprobado por el Comité de Ética de Investigación de la Pontificia
+                Universidad Javeriana / HUSI. Si tiene preguntas adicionales puede contactarse con la investigadora
+                principal Cándida Díaz Brochero al correo candida_diaz@javeriana.edu.co.</p>
+            <p>Presidente del Comité de Ética Institucional: Carlos Gómez-Restrepo, Teléfono 3208320 ext 2770,
+                Dirección cra. 7 N° 40-62. Facultad de Medicina.</p>
+        </div>
+
+        <form #formGroup [formGroup]="sectionForm" name="consent">
+            <div class="section-body" *ngFor="let question of questions; let i = index">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="question-text" for="name">{{question.text}}</label>
+
+                        <input *ngIf="question.widgetType == 'input'" type="text" class="form-control" id="name"
+                            placeholder="Ingrese la respuesta" [ngClass]="{ 'invalid-input': validateForm('name') }" />
+
+                        <div class="container-radio" *ngIf="(question.widgetType == 'choice' && question.parent == 0)">
+                            <div *ngFor="let answer of toJson(question.answersInJson); let j = index">
+                                <div class="widget-radio">
+                                    <input type="radio" class="radio-input" [name]="'' + question.id"
+                                        [formControlName]="'' + question.id" [value]="answer.text"
+                                        (click)="setFormValue('' + question.id, answer.text)" 
+                                        [ngClass]="{ 'invalid-input': validateForm('') }">
+                                    <label class="form-check-label" for="required">{{answer.text}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="validateForm('' + question.id)" [ngClass]="{ 'invalid-input-label': validateForm('' + question.id)}">
+                            <label> Debe ingresar la respuesta</label>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div *ngIf="!isValidForm" [ngClass]="{ 'invalid-input-label': !isValidForm }">
+                <p> Debe aceptar el consentimiento informado</p>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="containter-buttons">
+    <button  [disabled]="!sectionForm.valid && !isValidForm" title="Siguiente" type="button" class="btn btn-actions btn-next" aria-label="Left Align"
+        (click)="nextSection()">
+        <img [src]="'assets/img/arrow_forward.svg' " width="21" />
+    </button>
+</div>
+<app-spinner *ngIf="showSpinner"></app-spinner>
