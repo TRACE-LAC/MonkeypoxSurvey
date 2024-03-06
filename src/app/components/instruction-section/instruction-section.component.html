@@ -1,0 +1,25 @@
+<app-background-video-player [animationPath]="animationPath"></app-background-video-player>
+<div class="main-container">
+    <div class="container-header">
+        <h2>Instrucciones de diligenciamiento</h2>
+    </div>
+    <div class="section-content">
+        <div>
+            <p>Para cada una de las siguientes preguntas, seleccione la opción que mejor describa su situación
+                particular.</p>
+            <p> Recuerde que no puede dejar ninguna pregunta sin responder.</p>
+            <p> Tenga en cuenta que pueden haber preguntas con más de una respuesta o respuesta abierta</p>
+
+        </div>
+    </div>
+</div>
+<div class="containter-buttons">
+    <button title="Anterior" type="button" class="btn btn-actions" aria-label="Left Align" (click)="previousSection()">
+        <img [src]="'assets/img/arrow_back.svg' " width="21" />
+    </button>
+    <button title="Siguiente" type="button" class="btn btn-actions btn-next" aria-label="Left Align"
+        (click)="nextSection()">
+        <img [src]="'assets/img/arrow_forward.svg' " width="21" />
+    </button>
+</div>
+<app-spinner *ngIf="showSpinner"></app-spinner>

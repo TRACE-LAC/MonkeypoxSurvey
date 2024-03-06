@@ -1,0 +1,103 @@
+p {
+    text-align: justify;
+}
+
+.section-content, .question-text {
+    text-align: justify;
+}
+
+.form-group {
+    text-align: justify;
+}
+
+.container-radio {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+.widget-radio {
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+}
+
+.btn-next {
+    margin-left: 0.5em;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-container {
+        margin-top: 4.5em;
+        margin-left: 2em;
+        margin-right: 2.6em;
+        height: 10em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 121vw;
+    }
+    .section-content {
+        margin-right: 0.25em;
+        margin-left: 0.45em;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    p, label{
+        font-size: 1.4em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .subtitle {
+        font-size: 1.4em;
+    }
+    .description {
+        font-size: 1em;
+    }
+    .main-container {
+        margin-top: 4.5vw;
+        margin-left: 20em;
+        margin-right: 6.4em;
+        height: 10em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 28vw;
+    }
+    .section-content {
+        margin-right: 1.25em;
+        margin-left: 1.45em;
+    }
+    .containter-buttons {
+        text-align: center;
+        padding-top: 1em;
+        margin-left: 12.5vw;
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    p, label, .invalid-input-label {
+        font-size: 1.4em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    .main-container {
+        margin-top: 16.5vw;
+        margin-left: 2em;
+        margin-right: 2em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 74vw;
+    }
+    .section-content {
+        margin-right: 1.25em;
+        margin-left: 1.45em;
+    }
+    .section-body {
+        margin-bottom: 1.9vw;
+    }
+    .containter-buttons {
+        text-align: center;
+        padding-top: 0em;
+        margin-left: 5.5vw;
+    }
+}
