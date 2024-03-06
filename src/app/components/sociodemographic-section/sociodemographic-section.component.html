@@ -1,0 +1,183 @@
+<app-background-video-player [animationPath]="animationPath" [loop]="true"></app-background-video-player>
+<div class="main-container">
+    <div *ngIf="showTitle" class="container-header">
+        <h2>{{questions[0].title}}</h2>
+    </div>
+    <div *ngIf="!showTitle" class="section-content">
+        <div *ngIf="showDefinitions && sectionDefinitions.length > 0" class="containter-definitions">
+            <h3>Definiciones</h3>
+            <p>A continuación, se definirán algunos términos utilizados dentro de la encuesta:</p>
+            <div class="containter-definition" *ngFor="let definition of sectionDefinitions; let i = index">
+                <label class="definition-text" for="name">{{definition.title}} </label>
+                <label class="question-text" for="name">{{definition.text}}</label>
+            </div>
+        </div>
+        <div *ngIf="showThanks" class="containter-thanks">
+            <h2>Ha finalizado la encuesta</h2>
+            <h2>¡Muchas gracias!</h2>
+        </div>
+        <form #formGroup [formGroup]="sectionForm" name="sociodemographic">
+            <div *ngIf="!showDefinitions">
+                <div class="section-body" *ngFor="let question of sectionQuestions; let i = index">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+
+                            <label *ngIf="question.parent == 0" class="question-text"
+                                for="name">{{question.text}}</label>
+
+                            <div *ngIf="question.definitions != null && question.definitions != undefined && question.definitions.length > 1"
+                                class="container-notes">
+                                <label class="note-text" for="name">Nota: </label>
+                                <label class="question-text" for="name">{{question.definitions}}</label>
+                            </div>
+
+                            <div class="widget-input" *ngIf="question.widgetType == 'input'">
+                                <input *ngIf="question.type != 'numeric'"
+                                    [type]="'text'"
+                                    class="form-control input-answer" id="name" placeholder="Ingrese la respuesta"
+                                    [formControlName]="'' + question.id"
+                                    [ngClass]="{ 'invalid-input': validateForm('' + question.id) }" />
+                                <input *ngIf="question.type == 'numeric'"
+                                    [type]="'number'"
+                                    min="0"
+                                    oninput="this.value = Math.abs(this.value)"
+                                    class="form-control input-answer" id="name" placeholder="Ingrese la respuesta"
+                                    [formControlName]="'' + question.id"
+                                    [ngClass]="{ 'invalid-input': validateForm('' + question.id) }" />
+                            </div>
+
+                            <div class="widget-dropdown"
+                                *ngIf="question.widgetType == 'dropdown' && question.text.includes('departamento')">
+                                <select class="dropdown form-control" id="question.id"
+                                    [ngClass]="{ 'invalid-input': validateForm('department') }"
+                                    [formControlName]="'' + question.id"
+                                    (change)="getMunicipalities(question.id.toString())">
+                                    <option value="" selected disabled>Seleccione una opción</option>
+                                    <option class="dropdown-option" *ngFor="let department of departments"
+                                        [value]="department.departamento">{{ department.departamento }}</option>
+                                </select>
+                                <div *ngIf="!isValidQuestionsLog.get(question.id)" class="invalid-input-label">
+                                    Debe responder la pregunta
+                                </div>
+                            </div>
+
+                            <div *ngIf="question.widgetType == 'dropdown' && question.text.includes('ciudad')"
+                                class="widget-dropdown">
+                                <select class="dropdown form-control" id="question.id"
+                                    [formControlName]="'' + question.id"
+                                    [ngClass]="{ 'invalid-input': validateForm('review') }">
+                                    <option value="" selected disabled>Seleccione una opción</option>
+                                    <option class="dropdown-option" *ngFor="let municipalitie of municipalities"
+                                        [value]="municipalitie.municipio">{{ municipalitie.municipio }}
+                                    </option>
+                                </select>
+                                <div *ngIf="!isValidQuestionsLog.get(question.id)" class="invalid-input-label">
+                                    Debe responder la pregunta
+                                </div>
+                            </div>
+
+                            <div class="container-checkbox"
+                                *ngIf="(question.widgetType == 'checkbox' && question.parent == 0) || (question.widgetType == 'checkbox' && this.childQuestions.get(question.id)?.isParentSelected)">
+                                <div *ngFor="let answer of toJson(question.answersInJson); let j = index">
+                                    <div [formGroupName]="question.id">
+                                        <div class="widget-checkbox">
+                                            <input type="checkbox" class="check-input"
+                                                [formControlName]="'' + answer.id" [value]="answer.text"
+                                                [ngClass]="{ 'invalid-input': validateForm('') }">
+                                            <label class="form-check-label" for="required">{{answer.text}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-which-checkbox" *ngIf="this.whichQuestionsLog.get(question.id) != undefined">
+                                    <input type="text" class="input-which form-control"
+                                        placeholder="Ingrese la respuesta"
+                                        [value]="whichQuestionsLog.get(question.id)"
+                                        (change)="onChangeWhich($event, '' + question.id, 'which')"
+                                        [ngClass]="{ 'invalid-input': validateForm('') }" />
+                                </div>
+                            </div>
+
+                            <div class="container-radio"
+                                *ngIf="(question.widgetType == 'choice' && question.parent == 0) || (question.widgetType == 'choice' && this.childQuestions.get(question.id)?.isParentSelected)">
+                                <div *ngFor="let answer of toJson(question.answersInJson); let j = index">
+                                    <div class="widget-radio">
+                                        <input type="radio" class="radio-input" [name]="'' + question.id"
+                                            [formControlName]="'' + question.id" [value]="answer.text"
+                                            (click)="setFormValue('' + question.id, answer.text, '' + answer.id, '', question.widgetType)"
+                                            [ngClass]="{ 'invalid-input': validateForm('' + question.id) }">
+                                        <label class="form-check-label" for="required">{{answer.text}}</label>
+                                    </div>
+                                </div>
+                                <div *ngIf="!isValidQuestionsLog.get(question.id)" class="invalid-input-label">
+                                    Debe responder la pregunta
+                                </div>
+                            </div>
+
+                            <div class="container-radio"
+                                *ngIf="(question.widgetType == 'choicemix' && question.parent == 0) || (question.widgetType == 'choicemix' && this.childQuestions.get(question.id)?.isParentSelected)">
+                                <div [formGroupName]="question.id">
+                                    <div *ngFor="let answer of toJson(question.answersInJson); let j = index">
+                                        <div class="widget-radio">
+                                            <input type="radio" class="radio-input" [name]="'' + question.id"
+                                                [formControlName]="'' + question.id" [value]="answer.text"
+                                                (click)="setFormValue('' + question.id, answer.text, '' + question.id, '', question.widgetType)"
+                                                [ngClass]="{ 'invalid-input': validateForm('') }">
+                                            <label class="form-check-label" for="required">{{answer.text}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-which" *ngIf="this.whichQuestionsLog.get(question.id) != undefined">
+                                    <input type="text" class="form-control" placeholder="Ingrese la respuesta"
+                                        [value]="whichQuestionsLog.get(question.id)"
+                                        (change)="onChangeWhich($event, '' + question.id, 'which')"
+                                        [ngClass]="{ 'invalid-input': validateForm('') }" />
+                                </div>
+                                <div *ngIf="!isValidQuestionsLog.get(question.id)" class="invalid-input-label">
+                                    Debe responder la pregunta
+                                </div>
+                            </div>
+
+                            <div class="container-radio-anyone" *ngIf="question.widgetType == 'choice/anyone'">
+                                <div *ngFor="let answer of toJson(question.answersInJson); let j = index"
+                                    class="widget-radio-anyone">
+                                    <label class="question-text" for="name">{{answer.text}}</label>
+
+                                    <div class="radio-anyone">
+                                        <input type="radio" class="radio-input"
+                                            [checked]="this.sectionForm.get(question.id.toString())?.value.id === answer.id ? true: false"
+                                            [ngClass]="{ 'invalid-input': validateForm('required') }">
+                                        <label class="form-check-label" for="required">Si </label>
+
+                                        <input type="radio" class="radio-input"
+                                            [checked]="this.sectionForm.get(question.id.toString())?.value.id === answer.id ? true: false"
+                                            [ngClass]="{ 'invalid-input': validateForm('required') }">
+                                        <label class="form-check-label" for="required">No </label>
+
+                                        <input *ngIf="question.type == 'yes/not/know'" type="radio" class="radio-input"
+                                            [checked]="this.sectionForm.get(question.id.toString())?.value.id === answer.id ? true: false"
+                                            [ngClass]="{ 'invalid-input': validateForm('required') }">
+                                        <label *ngIf="question.type == 'yes/not/know'" class="form-check-label"
+                                            for="required">No lo sé </label>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="containter-buttons">
+    <button title="Anterior" type="button" class="btn btn-actions" aria-label="Left Align" (click)="previousQuestion()">
+        <img [src]="'assets/img/arrow_back.svg' " width="21" />
+    </button>
+    <button title="Siguiente" type="button" class="btn btn-actions btn-next" aria-label="Left Align"
+        (click)="nextQuestion()">
+        <img [src]="'assets/img/arrow_forward.svg' " width="21" />
+    </button>
+</div>
+<app-spinner *ngIf="showSpinner"></app-spinner>

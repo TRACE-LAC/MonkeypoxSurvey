@@ -1,0 +1,245 @@
+p {
+    text-align: justify;
+}
+
+.container-header {
+    padding-top: 50vw;
+}
+
+.question-text{
+    text-align: justify;
+}
+
+.container-definitions {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    text-align: justify;
+}
+
+.containter-definition {
+    margin-bottom: 4vw;
+    text-align: justify;
+}
+
+.definition-text {
+    font-weight: bold;
+    color: #7E1CFF;
+}
+
+.container-notes {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+
+.note-text {
+    font-weight: bold;
+}
+
+.form-group {
+    text-align: justify;
+}
+
+.widget-input {
+    padding-top: 1em;
+}
+
+.container-radio {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+
+.widget-radio {
+    align-items: flex-start;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    display: flex;
+}
+
+.container-checkbox {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+
+.widget-checkbox {
+    align-items: flex-start;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    display: flex;
+}
+
+.container-radio-anyone {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+.widget-radio-anyone {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    text-align: center;
+}
+
+.radio-anyone {
+    margin-top: 2vw;
+    text-align: center;
+}
+
+.widget-which {
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    padding-left: 1.3em;
+}
+
+.widget-dropdown {
+    padding-top: 1em;
+}
+
+.dropdown {
+    width: 94%;
+}
+
+.dropdown-option {
+    width: 21em;
+    overflow: scroll;
+    text-overflow: ellipsis;
+}
+
+.containter-buttons {
+    text-align: center;
+    padding-top: 1em;
+}
+
+.btn-next {
+    margin-left: 0.5em;
+}
+
+@media only screen and (min-width: 601px) {
+    p, label, .invalid-input-label {
+        font-size: 1.4em;
+    }
+    h3 {
+        font-size: 1.8em;
+    }
+    input[type='radio'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    input[type='checkbox'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    .main-container {
+        margin-top: 7.5vw;
+        margin-left: 21em;
+        margin-right: 7.4em;
+        height: 10em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 25vw;
+    }
+    .section-content {
+        margin-right: 1.25em;
+        margin-left: 1.45em;
+    }
+    .section-body {
+        margin-bottom: 1.9vw;
+    }
+    .containter-buttons {
+        text-align: center;
+        padding-top: 1em;
+        margin-left: 12.5vw;
+    }
+    .container-header {
+        padding-top: 6vw;
+    }
+    .container-header h2 {
+        font-size: 3.5em;
+    }
+    .widget-dropdown {
+        padding-top: 1em;
+        margin-bottom: 2vw;
+    }
+    .dropdown {
+        width: 30%;
+    }
+    .dropdown-option {
+        width: 2em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+    }
+    .container-checkbox {
+        margin-top: 1vw;
+        margin-bottom: -1vw;
+    }
+    .widget-checkbox {
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 1vw;
+        display: flex;
+    }
+    .widget-which-checkbox {
+        padding-top: 0em;
+        padding-bottom: 0em;
+        padding-left: 1.4em;
+        width: 65%;
+        display: inline-block;
+    }
+    .container-radio {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    /* .form-group {
+        text-align: center;
+    } */
+    .widget-radio {
+        text-align: justify;
+        padding-top: 1vw;
+        padding-bottom: 0vw;
+        /* display: inherit; */
+    }
+    .widget-which {
+        padding-top: 0.6em;
+        padding-bottom: 0.4em;
+        padding-left: 1.6em;
+        width: 65%;
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    p, label, .invalid-input-label {
+        font-size: 1.4em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    input[type='text'], input[type='number'], select { 
+        border-radius: 0.8em;
+        border: 0.23vw solid #7E1CFF;
+        padding: 0.8vw;
+        width: 60%;
+        font-family: "WorkSans";
+        font-size: 1.3em;
+    }
+    .main-container {
+        margin-top: 16.5vw;
+        margin-left: 2em;
+        margin-right: 2em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 74vw;
+    }
+    .section-content {
+        margin-right: 1.25em;
+        margin-left: 1.45em;
+    }
+    .container-header {
+        padding-top: 20vw;
+    }
+    .section-body {
+        margin-bottom: 1.9vw;
+    }
+    .containter-buttons {
+        text-align: center;
+        padding-top: 0em;
+        margin-left: 5.5vw;
+    }
+}
