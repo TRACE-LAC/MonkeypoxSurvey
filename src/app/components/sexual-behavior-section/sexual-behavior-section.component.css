@@ -1,0 +1,227 @@
+p {
+    text-align: justify;
+}
+
+.container-header {
+    padding-top: 50vw;
+}
+
+.question-text{
+    text-align: justify;
+}
+
+.container-definitions {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    text-align: justify;
+}
+
+.containter-definition {
+    margin-bottom: 4vw;
+    text-align: justify;
+}
+
+.definition-text {
+    font-weight: bold;
+    color: #7E1CFF;
+}
+
+.container-notes {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+
+.note-text {
+    font-weight: bold;
+}
+
+.form-group {
+    text-align: justify;
+}
+
+.widget-input {
+    padding-top: 1em;
+}
+
+.container-radio {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+
+.widget-radio {
+    align-items: flex-start;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    display: flex;
+}
+
+.container-checkbox {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+
+.widget-checkbox {
+    align-items: flex-start;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    display: flex;
+}
+
+.container-radio-anyone {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+.widget-radio-anyone {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    text-align: center;
+}
+
+.radio-anyone {
+    margin-top: 2vw;
+    text-align: center;
+}
+
+.widget-which {
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    padding-left: 1.3em;
+}
+
+.widget-dropdown {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.dropdown {
+    width: 19em;
+}
+
+.dropdown-option {
+    width: 21em;
+    overflow: scroll;
+    text-overflow: ellipsis;
+}
+
+.containter-buttons {
+    text-align: center;
+    padding-top: 1em;
+}
+
+.btn-next {
+    margin-left: 0.5em;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-container {
+        margin-top: 4.5em;
+        margin-left: 2em;
+        margin-right: 2.6em;
+        height: 10em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 121vw;
+    }
+    .section-content {
+        margin-right: 0.25em;
+        margin-left: 0.45em;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    p, label, .invalid-input-label {
+        font-size: 1.4em;
+    }
+    h3 {
+        font-size: 1.8em;
+    }
+    input[type='radio'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    input[type='checkbox'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    .main-container {
+        margin-top: 6.5vw;
+        margin-left: 20em;
+        margin-right: 6.4em;
+        height: 10em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 26vw;
+    }
+    .section-body {
+        margin-bottom: 1.9vw;
+    }
+    .section-content {
+        margin-right: 1.25em;
+        margin-left: 1.45em;
+    }
+    .containter-buttons {
+        text-align: center;
+        padding-top: 1em;
+        margin-left: 12.5vw;
+    }
+    .container-header {
+        padding-top: 7vw;
+        margin-left: 3em;
+    }
+    .container-header h2 {
+        font-size: 3.5em;
+    }
+    .container-definitions {
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        text-align: justify;
+    }
+    .containter-definitions h3{
+        font-size: 2em;
+    }
+    .containter-definition {
+        margin-bottom: 1vw;
+        text-align: justify;
+    }
+    .container-notes {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    .form-group {
+        text-align: justify;
+    }
+    .container-checkbox {
+        margin-top: 1vw;
+        margin-bottom: -1vw;
+    }
+    .widget-checkbox {
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 1vw;
+        display: flex;
+    }
+    .container-radio {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    .widget-radio {
+        padding-top: 1vw;
+        padding-bottom: 0vw;
+    }
+    .widget-radio-anyone {
+        padding-top: 0vw;
+        padding-bottom: 2vw;
+        text-align: center;
+    }
+    .input-answer {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        width: 30%;
+    }
+    .widget-which {
+        padding-top: 0em;
+        padding-bottom: 0.4em;
+        padding-left: 1.5vw;
+    }
+}
