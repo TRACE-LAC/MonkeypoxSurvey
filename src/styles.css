@@ -1,0 +1,264 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "WorkSans";
+    src: local("WorkSans"), url(./assets/fonts/WorkSans/WorkSans-Regular.ttf) format("truetype");
+}
+
+h2, h3, h4 {
+    color: #7E1CFF;
+    text-align: center;
+}
+
+h2, h3, h4, h5, p, label, input::placeholder, select, option, .invalid-input-label {
+    font-family: "WorkSans";
+}
+
+.subtitle-container {
+    display: flex;
+}
+
+.subtitle {
+    font-weight: bold;
+    color: #7E1CFF;
+    text-align: justify;
+}
+
+.description {
+    font-weight: normal;
+    color: black;
+    text-align: justify;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4em;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #7e1cffcd;
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.219);
+}
+
+input[type='radio']:checked {
+    background-color: #7E1CFF;
+    accent-color: #7E1CFF;
+}
+
+input[type='checkbox']:checked {
+    background-color: #7E1CFF;
+    accent-color: #7E1CFF;
+}
+
+input[type='text'], input[type='number'], select { 
+    border-radius: 0.7em;
+    border: 0.6vw solid #7E1CFF;
+    padding: 2vw;
+    width: 90%;
+    font-family: "WorkSans";
+}
+
+input[type='text']:focus { 
+    outline: none !important;
+    border: 0.6vw solid #02afeeef;
+}
+
+input[type='number']:focus { 
+    outline: none !important;
+    border: 0.6vw solid #02afeeef;
+}
+
+select:focus { 
+    outline: none !important;
+    border: 0.6vw solid #02afeeef;
+}
+
+.containter-buttons {
+    text-align: center;
+    padding-top: 1em;
+}
+
+.btn-actions {
+    background-color: #7E1CFF;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: 31px;
+    height: 1.7em;
+    width: 1.7em;
+    box-shadow: 0 2px 4px darkslategray;
+    border-radius: 50%;
+}
+
+.btn-actions:hover { 
+    background-color: #02afeeef;
+}
+
+.btn-actions:active {
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+}
+
+@media only screen and (max-width: 600px) {
+    .main-container {
+        margin-top: 6em;
+        margin-left: 2em;
+        margin-right: 2.6em;
+        height: 10em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 121vw;
+    }
+    .section-content {
+        margin-right: 0.25em;
+        margin-left: 0.45em;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    option { 
+        font-size: 1em;
+    }
+    input::placeholder {
+        font-size: 0.9em;
+    }
+    .main-container {
+        margin-top: 6.5em;
+        margin-left: 16em;
+        margin-right: 3.6em;
+        height: 10em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 28vw;
+    }
+    .section-content {
+        margin-right: 1.25em;
+        margin-left: 1.45em;
+    }
+    .containter-buttons {
+        text-align: center;
+        padding-top: 1em;
+        margin-left: 8vw;
+    }
+    input[type='text'], input[type='number'], select { 
+        border-radius: 0.8em;
+        border: 0.23vw solid #7E1CFF;
+        padding: 0.8vw;
+        width: 30%;
+        font-family: "WorkSans";
+        font-size: 1.3em;
+    }
+    select { 
+        width: 50%;
+    }
+    select:focus { 
+        outline: none !important;
+        border: 0.23vw solid #02afeeef;
+    }
+    input[type='number']:focus { 
+        outline: none !important;
+        border: 0.23vw solid #02afeeef;
+    }
+    input[type='text']:focus { 
+        outline: none !important;
+        border: 0.23vw solid #02afeeef;
+    }
+    .invalid-input-label {
+        width: 100%;
+        margin-top: .90rem;
+        color: #dc3545;
+        text-align: justify;
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    p, label, .invalid-input-label {
+        font-size: 1.4em;
+    }
+    h3 {
+        font-size: 1.8em;
+    }
+    input[type='radio'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    input[type='checkbox'] {
+        height: 1.1vw;
+        margin-right: 1em;
+    }
+    .main-container {
+        margin-top: 12.5vw;
+        margin-left: 21em;
+        margin-right: 7.4em;
+        height: 10em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        height: 10vw;
+    }
+    .section-content {
+        margin-right: 1.25em;
+        margin-left: 1.45em;
+    }
+    .section-body {
+        margin-bottom: 1.9vw;
+    }
+    .containter-buttons {
+        text-align: center;
+        padding-top: 1em;
+        margin-left: 12.5vw;
+    }
+    .container-header {
+        padding-top: 6vw;
+    }
+    .container-header h2 {
+        font-size: 3.5em;
+    }
+    .widget-dropdown {
+        padding-top: 1em;
+        margin-bottom: 2vw;
+    }
+    .dropdown {
+        width: 30%;
+    }
+    .dropdown-option {
+        width: 2em;
+        overflow: scroll;
+        text-overflow: ellipsis;
+    }
+    .container-checkbox {
+        margin-top: 1vw;
+        margin-bottom: -1vw;
+    }
+    .widget-checkbox {
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 1vw;
+        display: flex;
+    }
+    .widget-which-checkbox {
+        padding-top: 0em;
+        padding-bottom: 0em;
+        padding-left: 1.4em;
+        width: 65%;
+        display: inline-block;
+    }
+    .container-radio {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    /* .form-group {
+        text-align: center;
+    } */
+    .widget-radio {
+        text-align: justify;
+        padding-top: 1vw;
+        padding-bottom: 0vw;
+        /* display: inherit; */
+    }
+    .widget-which {
+        padding-top: 0.6em;
+        padding-bottom: 0.4em;
+        padding-left: 1.6em;
+        width: 65%;
+        display: inline-block;
+    }
+}
