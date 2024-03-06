@@ -1,0 +1,8 @@
+<video *ngIf="!loop" (ended)="redirectPage()" id="animationPlayer" muted autoplay oncanplay="this.play()"
+    onloadedmetadata="this.muted = true" playsinline>
+    <source type="video/mp4" [src]="animationPath">
+</video>
+<video *ngIf="loop" (ended)="redirectPage()" id="animationPlayer" loop muted autoplay oncanplay="this.play()"
+onloadedmetadata="this.muted = true" playsinline>
+    <source type="video/mp4" [src]="animationPath">
+</video>
